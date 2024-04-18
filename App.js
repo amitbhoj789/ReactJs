@@ -1,44 +1,22 @@
-/*
-<div id="parent">
-    <div id="child">
-        <h1>I am h1 tag</h1>
-        <h2>I am h2 tag</h2>
-    </div>
-    <div id="child2">
-        <h1>I am h1 tag</h1>
-        <h2>I am h2 tag</h2>
-    </div>
-</div>
-
-Here, Parent is a ----> ReactElement(object) ====becomes===> HTML(Browser understands)
-
-*/
-
-const parent = React.createElement(
-    "div", 
-    {id: "parent"}, 
-    [
-        React.createElement("div", {id: "child"}, [
-            React.createElement("h1", {}, "I am h1 tag"),
-            React.createElement("h2", {}, "I am h2 tag")
-        ]),
-        React.createElement("div", {id: "child2"}, [
-            React.createElement("h1", {}, "I am h1 tag"),
-            React.createElement("h2", {}, "I am h2 tag")
-        ])
-    ]
-);
+import React from "react";
+import ReactDOM from "react-dom/client";
+import Header from "./src/components/Header";
+import Body from "./src/components/Body";
 
 
-// const heading = React.createElement("h1", 
-//     {id: "heading", xyx: "abc"},
-//     "Hello React World"
-// );
+// const styleCard = {
+//     backgroundColor : "#f0f0f0"
+// };
 
-// console.log(heading);  // object
+const AppLayout = () => {
+    return(
+        <div className="app">
+            <Header />
+            <Body />
+        </div>
+    );
+};
 
-console.log(parent); // object
+const root = ReactDOM.createRoot(document.getElementById("root"));
 
-const root = ReactDOM.createRoot(document.getElementById("root"))
-
-root.render(parent);
+root.render(<AppLayout/>);
